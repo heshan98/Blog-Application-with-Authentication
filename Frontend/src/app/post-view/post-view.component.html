@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<header>
+		<div class="container">
+			<h1>MiBlog Blog</h1>
+			<nav>
+				<ul>
+					 <li><a routerLink="/allpost">Home</a></li>
+          <li><a routerLink="/allpost">About</a></li>
+					<li><a routerLink="/allpost">Contact</a></li>
+
+				</ul>
+			</nav>
+		</div>
+    <button class="update"  (click)="postEdit()">Edit Post</button>
+    <button class="delete"  (click)="deletePost()">Delete Post</button>
+	</header>
+	<main>
+		<div class="container">
+			<article>
+				<header>
+					<h2>{{this.blogForm.get(['title'])!.value}}</h2>
+					<p class="meta">By {{this.blogForm.get(['author'])!.value}} | {{this.formattedDate}}</p>
+				</header>
+				<img src="assets\image.jpg">
+				<p>{{this.blogForm.get(['content'])!.value}}</p>
+
+			</article>
+		</div>
+	</main>
+	<footer>
+		<div class="container">
+			<p>&copy; 2023 MiBlog. All rights reserved.</p>
+		</div>
+	</footer>
+</body>
+</html>
+

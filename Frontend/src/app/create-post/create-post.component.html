@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<header>
+		<div class="container">
+			<h1>Mi Blog</h1>
+			<nav>
+				<ul>
+					 <li><a routerLink="/allpost">Home</a></li>
+						<li><a routerLink="/allpost">About</a></li>
+					<li><a routerLink="/allpost">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+    <button class="logout"  (click)="logOut()">Log Out</button>
+	</header>
+	<main>
+		<div class="container">
+			<h2 *ngIf="!this.blogId">Create a New Blog Post</h2>
+      <h2 *ngIf="this.blogId">Edit Blog Post</h2>
+			<form  [formGroup]="blogForm">
+			    <label for="title">Title:</label>
+			    <input type="text" id="title" name="title" required formControlName="title">
+
+
+			    <label for="author">Author:</label>
+			    <input type="text" id="author" name="author" readonly required formControlName="author">
+
+			    <!-- <label for="date">Date:</label>
+			    <input type="date" id="date" name="date" required> -->
+
+			    <label for="content">Content:</label>
+			    <textarea id="content" name="content" rows="10" required formControlName="content"></textarea>
+
+			    <input type="submit" value="Submit" *ngIf="!this.blogId" (click)="submit()">
+          <input type="submit" value="Update" *ngIf="this.blogId" (click)="updatePost()">
+		  	</form>
+		</div>
+	</main>
+	<footer>
+		<div class="container">
+			<p>&copy; 2023 Mi Blog. All rights reserved.</p>
+		</div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<header>
+		<div class="container">
+			<h1>Mi Blog</h1>
+			<nav>
+				<ul>
+					 <li><a routerLink="/allpost">Home</a></li>
+						<li><a routerLink="/allpost">About</a></li>
+					<li><a routerLink="/allpost">Contact</a></li>
+
+				</ul>
+			</nav>
+		</div>
+    <button class="logout"  (click)="logOut()">Log Out</button>
+	</header>
+	<main>
+		<div class="container">
+			<h2>All Posts</h2> <button class="btn angular-btn"  routerLink="/createpost">Create Post</button>
+			<div class="posts">
+				<article *ngFor="let blog of blogPost">
+					<header>
+						<h3>{{blog.title}}</h3>
+						<p class="meta">By {{blog.author}} | {{ formatDate(blog.createdAt) }}</p>
+					</header>
+					<img src="assets\image.jpg" (click)="postView(blog.id)">
+					<p>{{blog.content}}</p>
+					<a (click)="postView(blog.id)" >Read More</a>
+				</article>
+
+			</div>
+		</div>
+	</main>
+	<footer>
+		<div class="container">
+			<p>&copy; 2023 Mi Blog. All rights reserved.</p>
+		</div>
+	</footer>
+</body>
+</html>
+
